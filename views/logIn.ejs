@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/contact.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <title>LogIn</title>
+</head>
+<body>
+    <div class="create">
+        <h3 class="create-title">Log In</h3>
+        <form action="/oldUser" method="post">
+            <input type="email" class="email" name="email" placeholder="Enter email" required><br/>
+            <input type="password" class="password" name="password" placeholder="Enter password" required><br/>
+            <input type="submit" class="create-button" value="Log In">
+            <button type="button" class="log-button"><a class="log-link" href="/signUp">Sign Up</a></button>
+            <% if (messages.noUser) { %>
+                <p class="error-message"><%= messages.noUser %></p>
+            <%
+            }
+            %>
+        </form>
+    </div>
+</body>
+</html>

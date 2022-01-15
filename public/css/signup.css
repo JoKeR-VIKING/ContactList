@@ -1,0 +1,74 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    color: #FFF;
+}
+
+body
+{
+    height: 100vh;
+    background-color: #252421;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create
+{
+    width: 25%;
+    height: 40%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
+}
+
+.create-title, .email, .password, .create-button, .log-button
+{
+    margin-top: 5%;
+    background-color: #252421;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.email, .password, .create-button, .log-button
+{
+    height: 30px;
+    margin-top: 30%;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.8);
+}
+
+.create-button, .log-button
+{
+    cursor: pointer;
+    width: 50px;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+.log-button
+{
+    left: 50%;
+}
+
+.log-link, .log-link:hover, .log-link:active
+{
+    text-decoration: none;
+}
+
+::placeholder
+{
+    color: #FFF;
+}
+
+.error-message
+{
+    margin-top: 3%;
+    color: #FF1A00;
+    font-size: 0.6rem;
+}

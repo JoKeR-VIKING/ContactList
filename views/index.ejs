@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/contact.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Contact List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contacts">
+            <h3 class="title">Contacts</h3>
+
+            <div class="add-info">
+                <form class="add-form" action="/addContact" method="post">
+                    <input class="name" type="text" placeholder="Enter name" name="name" required>
+                    <input class="number" type="text" placeholder="Enter number" minlength="10" maxlength="10" name="number" required>
+                    <input class="add" type="submit" value="Add">
+                    <button type="button" class="logout"><a class="logout-link" href="/logOut">Log Out</a></button>
+                    <% if (messages.contactExists) { %>
+                        <p class="error-message">*Contact Already Exists</p>
+                    <%
+                    }
+                    %>
+                    <% if (messages.successMessage) { %>
+                        <p class="success-message">*Contact created</p>
+                    <%
+                    }
+                    %>
+                </form>
+            </div>
+
+            <table class="contact-table">
+                <thead class="contact-head">
+                    <tr class="head-row">
+                        <th class="head-cell">Sr No.</th>
+                        <th class="head-cell">Name</th>
+                        <th class="head-cell">Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let j=parseInt(i);j<i+10 && j<contact_list.length;j++) { %>
+                        <tr class="body-row">
+                            <td class="cell"><%= j + 1 %></td>
+                            <td class="cell"><%= contact_list[j].name %></td>
+                            <td class="cell">
+                                <%= contact_list[j].number %>
+                                <a class="delete-contact" href="/delete?number=<%= contact_list[j].number; %>">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+
+            <div class="page-bar">
+                <% for (let j=0;j<contact_list.length;j+=10) { %>
+                    <form action="/changePage/<%= j / 10; %>" method="post">
+                        <% if (i === j) { %>
+                            <input type="submit" class="pages" value="" style="background-color: #FFF">
+                        <% }
+                        else { %>
+                            <input type="submit" class="pages" value="" style="background-color: dimgray">
+                        <% } %>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

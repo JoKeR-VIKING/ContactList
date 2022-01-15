@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/contact.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <title>SignUp</title>
+</head>
+<body>
+    <div class="create">
+        <h3 class="create-title">Sign Up</h3>
+        <form action="/newUser" method="post">
+            <input type="email" class="email" name="email" placeholder="Enter email" required><br/>
+            <input type="password" class="password" name="password" placeholder="Enter password" required><br/>
+            <input type="submit" class="create-button" value="Create">
+            <button type="button" class="log-button"><a class="log-link" href="/logIn">Log In</a></button>
+            <% if (messages.newEmailMsg) { %>
+                <p class="error-message">*User Already Exists!</p>
+            <%
+            }
+            %>
+        </form>
+    </div>
+</body>
+</html>
